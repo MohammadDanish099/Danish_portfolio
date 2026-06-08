@@ -18,67 +18,53 @@
 body{
     background:#0f172a;
     color:white;
-    scroll-behavior:smooth;
+    overflow-x:hidden;
 }
 
 header{
-    height:100vh;
+    min-height:100vh;
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
     text-align:center;
-    background:linear-gradient(135deg,#0f172a,#1e293b,#312e81);
+    background:linear-gradient(135deg,#0f172a,#1e293b);
 }
 
 .hero{
-    max-width:800px;
+    animation:fadeIn 2s ease;
 }
 
 .hero h1{
     font-size:4rem;
-    margin-bottom:10px;
     color:#38bdf8;
 }
 
 .hero h2{
+    margin-top:10px;
     font-size:1.5rem;
-    margin-bottom:20px;
     color:#cbd5e1;
 }
 
 .hero p{
-    font-size:1.1rem;
-    line-height:1.8;
-    margin-bottom:30px;
+    margin-top:20px;
+    max-width:700px;
+    color:#94a3b8;
 }
 
 .btn{
     display:inline-block;
+    margin-top:25px;
     padding:12px 25px;
-    margin:10px;
-    border-radius:30px;
+    background:#38bdf8;
+    color:white;
     text-decoration:none;
-    font-weight:600;
-    transition:0.3s;
+    border-radius:30px;
+    transition:.4s;
 }
 
-.btn-primary{
-    background:#38bdf8;
-    color:black;
-}
-
-.btn-primary:hover{
-    transform:translateY(-3px);
-}
-
-.btn-secondary{
-    border:2px solid #38bdf8;
-    color:#38bdf8;
-}
-
-.btn-secondary:hover{
-    background:#38bdf8;
-    color:black;
+.btn:hover{
+    transform:translateY(-5px);
+    background:#0284c7;
 }
 
 section{
@@ -88,14 +74,25 @@ section{
 .section-title{
     text-align:center;
     margin-bottom:50px;
-    font-size:2.5rem;
     color:#38bdf8;
+    font-size:2.5rem;
 }
 
 .about{
-    text-align:center;
-    line-height:1.8;
-    color:#cbd5e1;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+}
+
+.card{
+    background:#1e293b;
+    padding:25px;
+    border-radius:15px;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
 }
 
 .skills-grid{
@@ -104,43 +101,23 @@ section{
     gap:20px;
 }
 
-.skill-card{
+.skill{
     background:#1e293b;
-    padding:25px;
-    border-radius:15px;
-    transition:0.3s;
+    padding:20px;
+    border-radius:10px;
 }
 
-.skill-card:hover{
-    transform:translateY(-8px);
+.progress{
+    background:#334155;
+    height:10px;
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:10px;
 }
 
-.skill-card h3{
-    color:#38bdf8;
-    margin-bottom:15px;
-}
-
-.skill-card ul{
-    list-style:none;
-}
-
-.skill-card li{
-    padding:5px 0;
-}
-
-.timeline{
-    position:relative;
-}
-
-.timeline-item{
-    background:#1e293b;
-    margin-bottom:25px;
-    padding:25px;
-    border-radius:15px;
-}
-
-.timeline-item h3{
-    color:#38bdf8;
+.progress-bar{
+    height:100%;
+    background:#38bdf8;
 }
 
 .projects{
@@ -153,316 +130,212 @@ section{
     background:#1e293b;
     padding:25px;
     border-radius:15px;
-    transition:0.3s;
+    transition:.4s;
 }
 
 .project-card:hover{
-    transform:translateY(-10px);
+    transform:scale(1.05);
 }
 
-.project-card h3{
-    color:#38bdf8;
-    margin-bottom:10px;
+.timeline{
+    border-left:3px solid #38bdf8;
+    padding-left:20px;
 }
 
-.tags{
-    margin-top:15px;
-}
-
-.tag{
-    display:inline-block;
-    padding:6px 12px;
-    background:#334155;
-    border-radius:20px;
-    margin:5px;
-    font-size:0.85rem;
-}
-
-.certificates{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:20px;
-}
-
-.cert-card{
-    background:#1e293b;
-    padding:20px;
-    border-radius:15px;
+.timeline-item{
+    margin-bottom:30px;
 }
 
 .contact{
     text-align:center;
 }
 
-.contact p{
-    margin:10px 0;
-}
-
 footer{
     text-align:center;
     padding:20px;
     background:#020617;
-    color:#94a3b8;
 }
 
-nav{
-    position:fixed;
-    width:100%;
-    top:0;
-    background:rgba(15,23,42,0.95);
-    padding:15px 10%;
-    z-index:1000;
-}
-
-nav ul{
-    display:flex;
-    justify-content:center;
-    gap:30px;
-    list-style:none;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    font-weight:500;
-}
-
-nav a:hover{
-    color:#38bdf8;
-}
-
-@media(max-width:768px){
-
-.hero h1{
-    font-size:2.5rem;
-}
-
-.hero h2{
-    font-size:1.2rem;
-}
-
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 </style>
 </head>
 <body>
 
-<nav>
-<ul>
-<li><a href="#about">About</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#experience">Experience</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#education">Education</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-</nav>
-
 <header>
 <div class="hero">
-<h1>Mohammad Danish</h1>
-<h2>Information Science Engineering Student | Software Developer</h2>
+    <h1>Mohammad Danish</h1>
+    <h2>Software Developer | Data Analyst | AI Enthusiast</h2>
 
-<p>
-Passionate about Software Development, Data Analytics, Full-Stack Development,
-and Wireless Communication Systems. Building innovative solutions through
-technology and continuous learning.
-</p>
+    <p>
+        Passionate Information Science student focused on software
+        development, data analysis, and innovative technology solutions.
+    </p>
 
-<a href="#projects" class="btn btn-primary">View Projects</a>
-<a href="#contact" class="btn btn-secondary">Contact Me</a>
+    <a href="#" class="btn">Download Resume</a>
 </div>
 </header>
 
-<section id="about">
-<h2 class="section-title">About Me</h2>
-<div class="about">
-<p>
-I am currently pursuing a B.Tech in Information Science and Engineering at
-NMAM Institute of Technology. My interests span software development,
-data analytics, database systems, and wireless communication technologies.
-I enjoy solving real-world problems through technology and continuously
-improving my technical skills.
-</p>
-</div>
-</section>
+<section>
+    <h2 class="section-title">About Me</h2>
 
-<section id="skills">
-<h2 class="section-title">Skills</h2>
+    <div class="about">
+        <div class="card">
+            <h3>Career Objective</h3>
+            <p>
+                To obtain an entry-level position where I can apply my
+                technical knowledge and problem-solving abilities while
+                continuously learning and adapting to new technologies.
+            </p>
+        </div>
 
-<div class="skills-grid">
-
-<div class="skill-card">
-<h3>Programming</h3>
-<ul>
-<li>Java</li>
-<li>Python</li>
-<li>C</li>
-</ul>
-</div>
-
-<div class="skill-card">
-<h3>Web Development</h3>
-<ul>
-<li>HTML</li>
-<li>CSS</li>
-<li>JavaScript</li>
-</ul>
-</div>
-
-<div class="skill-card">
-<h3>Databases</h3>
-<ul>
-<li>SQL</li>
-<li>MySQL</li>
-<li>PostgreSQL</li>
-</ul>
-</div>
-
-<div class="skill-card">
-<h3>Professional Skills</h3>
-<ul>
-<li>Problem Solving</li>
-<li>Teamwork</li>
-<li>Adaptability</li>
-<li>Analytical Thinking</li>
-</ul>
-</div>
-
-</div>
-</section>
-
-<section id="experience">
-<h2 class="section-title">Experience</h2>
-
-<div class="timeline">
-
-<div class="timeline-item">
-<h3>Sasken Technologies Ltd</h3>
-<h4>LTE Radio Access Network (RAN) Intern</h4>
-
-<p>
-Assisted in development and testing of LTE Radio Access Network features,
-focusing on performance, protocol validation, and network optimization.
-</p>
-
-<p>
-Worked with engineering teams to analyze logs, debug issues,
-and improve 4G/LTE communication modules.
-</p>
-</div>
-
-</div>
-</section>
-
-<section id="projects">
-<h2 class="section-title">Projects</h2>
-
-<div class="projects">
-
-<div class="project-card">
-<h3>Hospital Management System</h3>
-<p>
-A healthcare management platform for handling patients,
-appointments, doctors, and hospital operations.
-</p>
-
-<div class="tags">
-<span class="tag">SQL</span>
-<span class="tag">Database</span>
-<span class="tag">Full Stack</span>
-</div>
-</div>
-
-<div class="project-card">
-<h3>Price Prediction Using Data Analysis</h3>
-<p>
-Machine learning and data analytics project for predicting
-market prices using historical data.
-</p>
-
-<div class="tags">
-<span class="tag">Python</span>
-<span class="tag">Data Analysis</span>
-<span class="tag">ML</span>
-</div>
-</div>
-
-<div class="project-card">
-<h3>AHEAD</h3>
-<p>
-Autonomous Human Early-Failure Anticipation & Direction
-system using intelligent predictive analysis.
-</p>
-
-<div class="tags">
-<span class="tag">AI</span>
-<span class="tag">Analytics</span>
-<span class="tag">Prediction</span>
-</div>
-</div>
-
-</div>
-</section>
-
-<section id="education">
-<h2 class="section-title">Education</h2>
-
-<div class="timeline">
-
-<div class="timeline-item">
-<h3>NMAM Institute of Technology</h3>
-<p>B.Tech in Information Science & Engineering</p>
-<p>2023 - Present</p>
-</div>
-
-<div class="timeline-item">
-<h3>Vidyodaya PU College</h3>
-<p>Pre-University Education</p>
-<p>2021 - 2023</p>
-</div>
-
-<div class="timeline-item">
-<h3>GM Vidyanikethan Public School</h3>
-<p>School Education</p>
-<p>2009 - 2021</p>
-</div>
-
-</div>
+        <div class="card">
+            <h3>Professional Strengths</h3>
+            <ul>
+                <li>Analytical Thinking</li>
+                <li>Problem Solving</li>
+                <li>Quick Learner</li>
+                <li>Team Collaboration</li>
+                <li>Attention to Detail</li>
+            </ul>
+        </div>
+    </div>
 </section>
 
 <section>
-<h2 class="section-title">Certifications</h2>
+    <h2 class="section-title">Technical Skills</h2>
 
-<div class="certificates">
+    <div class="skills-grid">
 
-<div class="cert-card">
-TypeScript Programming for Web Development – Infosys Springboard
-</div>
+        <div class="skill">
+            <h3>Python</h3>
+            <div class="progress">
+                <div class="progress-bar" style="width:85%"></div>
+            </div>
+        </div>
 
-<div class="cert-card">
-Software Engineering Fundamentals – Infosys Springboard
-</div>
+        <div class="skill">
+            <h3>Java</h3>
+            <div class="progress">
+                <div class="progress-bar" style="width:80%"></div>
+            </div>
+        </div>
 
-<div class="cert-card">
-Java Programming for Complete Beginners – Udemy
-</div>
+        <div class="skill">
+            <h3>SQL</h3>
+            <div class="progress">
+                <div class="progress-bar" style="width:85%"></div>
+            </div>
+        </div>
 
-</div>
+        <div class="skill">
+            <h3>HTML/CSS/JavaScript</h3>
+            <div class="progress">
+                <div class="progress-bar" style="width:75%"></div>
+            </div>
+        </div>
+
+    </div>
 </section>
 
-<section id="contact">
-<h2 class="section-title">Contact</h2>
+<section>
+    <h2 class="section-title">Projects</h2>
 
-<div class="contact">
-<p>📧 danishudupi2021@gmail.com</p>
-<p>📱 9008937245</p>
-<p>📍 Santhekatte, Udupi</p>
-<p>🔗 linkedin.com/in/mohammad-danish-2a2b08247</p>
-</div>
+    <div class="projects">
+
+        <div class="project-card">
+            <h3>Hospital Management System</h3>
+            <p>
+                Database-driven healthcare management system using SQL,
+                backend integration, and analytics.
+            </p>
+        </div>
+
+        <div class="project-card">
+            <h3>Udemy Price Prediction</h3>
+            <p>
+                Machine learning project for predicting course prices
+                using data analysis techniques.
+            </p>
+        </div>
+
+        <div class="project-card">
+            <h3>AHEAD</h3>
+            <p>
+                Autonomous Human Early-Failure Anticipation &
+                Direction system based on AI concepts.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <h2 class="section-title">Education</h2>
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+            <h3>B.Tech Information Science & Engineering</h3>
+            <p>Nitte Mahalinga Adyantaya Memorial Institute of Technology</p>
+            <p>2023 - Present</p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>Pre-University</h3>
+            <p>Vidyodaya Pre-University College, Udupi</p>
+            <p>2021 - 2023</p>
+        </div>
+
+        <div class="timeline-item">
+            <h3>School Education</h3>
+            <p>GM Vidyanikethan Public School</p>
+            <p>2009 - 2021</p>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <h2 class="section-title">Experience</h2>
+
+    <div class="card">
+        <h3>Sasken Technologies Ltd</h3>
+        <h4>LTE RAN Intern</h4>
+        <br>
+        <ul>
+            <li>Worked on LTE Radio Access Network features.</li>
+            <li>Protocol validation and performance optimization.</li>
+            <li>Analyzed logs and debugged wireless communication issues.</li>
+            <li>Collaborated with cross-functional engineering teams.</li>
+        </ul>
+    </div>
+</section>
+
+<section class="contact">
+    <h2 class="section-title">Contact</h2>
+
+    <p>📞 9008937245</p>
+    <p>📧 danishudupi2021@gmail.com</p>
+    <p>📍 Santhekatte, Udupi</p>
+
+    <br>
+
+    <a href="https://linkedin.com" class="btn">
+        LinkedIn Profile
+    </a>
 </section>
 
 <footer>
-© 2026 Mohammad Danish | Portfolio Website
+    <p>© 2026 Mohammad Danish | Portfolio</p>
 </footer>
 
 </body>
