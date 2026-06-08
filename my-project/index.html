@@ -1,879 +1,448 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mohammad Danish | Portfolio</title>
-  <meta name="description" content="Professional portfolio of Mohammad Danish, Information Science student and aspiring software engineer." />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root,
-    [data-theme="light"] {
-      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
-      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
-      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.05rem);
-      --text-lg: clamp(1.125rem, 1rem + 0.6vw, 1.35rem);
-      --text-xl: clamp(1.6rem, 1.25rem + 1vw, 2.2rem);
-      --text-2xl: clamp(2.4rem, 1.6rem + 2vw, 4rem);
-
-      --space-2: 0.5rem;
-      --space-3: 0.75rem;
-      --space-4: 1rem;
-      --space-5: 1.25rem;
-      --space-6: 1.5rem;
-      --space-8: 2rem;
-      --space-10: 2.5rem;
-      --space-12: 3rem;
-      --space-16: 4rem;
-      --space-20: 5rem;
-
-      --color-bg: #f7f5f1;
-      --color-surface: #fcfbf8;
-      --color-surface-2: #f1ede7;
-      --color-border: rgba(31, 29, 26, 0.12);
-      --color-divider: rgba(31, 29, 26, 0.08);
-      --color-text: #1f1d1a;
-      --color-text-muted: #646057;
-      --color-text-faint: #918c84;
-      --color-primary: #155e63;
-      --color-primary-hover: #104b4f;
-      --color-primary-soft: rgba(21, 94, 99, 0.08);
-
-      --radius-md: 0.75rem;
-      --radius-lg: 1rem;
-      --radius-xl: 1.25rem;
-      --radius-full: 999px;
-
-      --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
-      --shadow-md: 0 10px 30px rgba(0,0,0,0.06);
-
-      --font-display: "Source Serif 4", Georgia, serif;
-      --font-body: "Inter", Arial, sans-serif;
-      --content: 1120px;
-      --transition: 180ms cubic-bezier(0.16, 1, 0.3, 1);
-      --reveal: 600ms cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    [data-theme="dark"] {
-      --color-bg: #161513;
-      --color-surface: #1d1b18;
-      --color-surface-2: #24211d;
-      --color-border: rgba(235, 230, 221, 0.12);
-      --color-divider: rgba(235, 230, 221, 0.08);
-      --color-text: #ece6dc;
-      --color-text-muted: #b9b0a5;
-      --color-text-faint: #8e867d;
-      --color-primary: #69aeb2;
-      --color-primary-hover: #8bc4c7;
-      --color-primary-soft: rgba(105, 174, 178, 0.12);
-      --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
-      --shadow-md: 0 10px 30px rgba(0,0,0,0.25);
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
-    body {
-      font-family: var(--font-body);
-      font-size: var(--text-base);
-      line-height: 1.65;
-      color: var(--color-text);
-      background: var(--color-bg);
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    a, button {
-      transition:
-        color var(--transition),
-        background var(--transition),
-        border-color var(--transition),
-        opacity var(--transition),
-        transform var(--transition);
-    }
-
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; border: 0; background: none; color: inherit; cursor: pointer; }
-
-    .container { width: min(calc(100% - 2rem), var(--content)); margin-inline: auto; }
-    .section { padding: clamp(3.5rem, 8vw, 6.5rem) 0; }
-
-    .skip-link {
-      position: absolute;
-      left: 1rem;
-      top: -3rem;
-      padding: 0.75rem 1rem;
-      background: var(--color-primary);
-      color: white;
-      border-radius: var(--radius-md);
-      z-index: 100;
-    }
-    .skip-link:focus { top: 1rem; }
-
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(12px);
-      background: color-mix(in srgb, var(--color-bg) 82%, transparent);
-      border-bottom: 1px solid transparent;
-    }
-    .header.scrolled { border-color: var(--color-divider); }
-
-    .nav {
-      min-height: 4.75rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-4);
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.8rem;
-      font-weight: 600;
-      letter-spacing: 0.01em;
-    }
-
-    .brand-mark {
-      width: 2.25rem;
-      height: 2.25rem;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: var(--color-primary);
-      color: white;
-      font-size: 0.9rem;
-      font-weight: 700;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      font-size: var(--text-sm);
-      color: var(--color-text-muted);
-    }
-
-    .nav-links a:hover,
-    .nav-links a:focus-visible {
-      color: var(--color-text);
-    }
-
-    .theme-toggle {
-      width: 2.6rem;
-      height: 2.6rem;
-      border-radius: var(--radius-full);
-      border: 1px solid var(--color-border);
-      background: var(--color-surface);
-    }
-
-    .hero {
-      padding: clamp(4rem, 10vw, 8rem) 0 clamp(3rem, 8vw, 5rem);
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: clamp(2rem, 4vw, 4rem);
-      align-items: end;
-    }
-
-    .eyebrow {
-      font-size: var(--text-xs);
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--color-text-faint);
-      margin-bottom: var(--space-4);
-    }
-
-    h1, h2 {
-      font-family: var(--font-display);
-      line-height: 1.02;
-      letter-spacing: -0.03em;
-    }
-
-    .hero h1 {
-      font-size: var(--text-2xl);
-      max-width: 10ch;
-      margin-bottom: var(--space-5);
-    }
-
-    .hero-subtitle {
-      font-size: var(--text-lg);
-      color: var(--color-text-muted);
-      max-width: 36ch;
-      margin-bottom: var(--space-5);
-    }
-
-    .hero-summary {
-      max-width: 60ch;
-      color: var(--color-text-muted);
-      margin-bottom: var(--space-8);
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: var(--space-4);
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      min-height: 3rem;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.85rem 1.2rem;
-      border-radius: var(--radius-full);
-      font-size: var(--text-sm);
-      font-weight: 600;
-    }
-
-    .btn-primary {
-      background: var(--color-primary);
-      color: white;
-    }
-
-    .btn-primary:hover { background: var(--color-primary-hover); }
-
-    .btn-secondary {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--color-primary);
-      color: var(--color-primary);
-    }
-
-    .hero-panel,
-    .card,
-    .timeline-item,
-    .contact-item {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .hero-panel {
-      padding: var(--space-8);
-    }
-
-    .hero-panel h2 {
-      font-size: var(--text-lg);
-      font-family: var(--font-body);
-      line-height: 1.3;
-      margin-bottom: var(--space-3);
-    }
-
-    .hero-panel p {
-      color: var(--color-text-muted);
-      margin-bottom: var(--space-6);
-    }
-
-    .hero-points {
-      display: grid;
-      gap: var(--space-4);
-    }
-
-    .hero-points div {
-      padding-top: var(--space-4);
-      border-top: 1px solid var(--color-divider);
-    }
-
-    .hero-points span {
-      display: block;
-      font-size: var(--text-xs);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--color-text-faint);
-      margin-bottom: 0.4rem;
-    }
-
-    .section-head {
-      display: grid;
-      gap: var(--space-3);
-      margin-bottom: var(--space-8);
-    }
-
-    .section-head h2 {
-      font-size: var(--text-xl);
-    }
-
-    .section-head p {
-      max-width: 62ch;
-      color: var(--color-text-muted);
-    }
-
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: var(--space-5);
-    }
-
-    .card {
-      padding: var(--space-6);
-    }
-
-    .card.clickable:hover {
-      border-color: color-mix(in srgb, var(--color-primary) 30%, var(--color-border));
-      box-shadow: var(--shadow-md);
-      transform: translateY(-2px);
-    }
-
-    .tag {
-      display: inline-flex;
-      margin-bottom: var(--space-4);
-      padding: 0.45rem 0.75rem;
-      border-radius: var(--radius-full);
-      background: var(--color-primary-soft);
-      color: var(--color-primary);
-      font-size: var(--text-xs);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    .card h3 {
-      font-size: var(--text-lg);
-      line-height: 1.25;
-      margin-bottom: 0.6rem;
-    }
-
-    .card p,
-    .card li,
-    .timeline-item p,
-    .timeline-item li,
-    .contact-item p,
-    .contact-item a {
-      color: var(--color-text-muted);
-    }
-
-    .experience-grid,
-    .two-col,
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: var(--space-5);
-    }
-
-    .experience-box {
-      padding: var(--space-8);
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .meta-label {
-      font-size: var(--text-xs);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--color-text-faint);
-      margin-bottom: 0.75rem;
-    }
-
-    .experience-box h3 {
-      font-size: var(--text-xl);
-      line-height: 1.15;
-      margin-bottom: var(--space-3);
-    }
-
-    .experience-box ul {
-      padding-left: 1rem;
-      display: grid;
-      gap: 0.7rem;
-      margin-top: var(--space-4);
-    }
-
-    .side-note {
-      padding: var(--space-8);
-      border-radius: var(--radius-xl);
-      background: var(--color-primary-soft);
-      border: 1px solid color-mix(in srgb, var(--color-primary) 20%, var(--color-border));
-    }
-
-    .side-note strong {
-      display: block;
-      margin-top: var(--space-4);
-      font-size: var(--text-lg);
-      color: var(--color-text);
-    }
-
-    .timeline {
-      display: grid;
-      gap: var(--space-4);
-    }
-
-    .timeline-item {
-      padding: var(--space-6);
-    }
-
-    .timeline-item h3 {
-      font-size: var(--text-lg);
-      margin-bottom: 0.35rem;
-    }
-
-    .timeline-meta {
-      font-size: var(--text-sm);
-      color: var(--color-text-faint);
-      margin-bottom: 0.75rem;
-    }
-
-    .list-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: var(--space-5);
-    }
-
-    .list-card {
-      padding: var(--space-6);
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .list-card h3 {
-      font-size: var(--text-sm);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--color-text-faint);
-      margin-bottom: var(--space-4);
-    }
-
-    .list-card ul {
-      list-style: none;
-      display: grid;
-      gap: 0.75rem;
-    }
-
-    .list-card li {
-      position: relative;
-      padding-left: 1rem;
-      color: var(--color-text-muted);
-    }
-
-    .list-card li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.72em;
-      width: 0.38rem;
-      height: 0.38rem;
-      border-radius: 50%;
-      background: var(--color-primary);
-    }
-
-    .contact-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .contact-item {
-      padding: var(--space-6);
-    }
-
-    .contact-item h3 {
-      font-size: var(--text-xs);
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--color-text-faint);
-      margin-bottom: 0.65rem;
-    }
-
-    .contact-item a:hover {
-      color: var(--color-primary);
-    }
-
-    .footer {
-      padding: 2rem 0 3rem;
-      border-top: 1px solid var(--color-divider);
-      color: var(--color-text-muted);
-      font-size: var(--text-sm);
-    }
-
-    .fade-in {
-      opacity: 0;
-      transition: opacity var(--reveal);
-    }
-
-    .fade-in.visible {
-      opacity: 1;
-    }
-
-    @media (max-width: 980px) {
-      .hero-grid,
-      .projects,
-      .experience-grid,
-      .two-col,
-      .list-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1rem 0;
-      }
-
-      .nav-links {
-        width: 100%;
-        justify-content: space-between;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-      }
-
-      .btn {
-        width: 100%;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-      }
-
-      .fade-in {
-        opacity: 1 !important;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mohammad Danish | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#0b1120;
+    color:white;
+}
+
+/* NAVBAR */
+
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    padding:20px 10%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(0,0,0,.4);
+    backdrop-filter:blur(15px);
+    z-index:1000;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:700;
+    color:#38bdf8;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 10%;
+}
+
+.hero-content{
+    max-width:650px;
+}
+
+.tag{
+    background:#38bdf8;
+    padding:8px 15px;
+    border-radius:50px;
+    color:white;
+    font-size:13px;
+}
+
+.hero h1{
+    margin-top:25px;
+    font-size:4rem;
+}
+
+.highlight{
+    background:linear-gradient(
+        90deg,
+        #38bdf8,
+        #8b5cf6
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.hero h2{
+    margin-top:10px;
+    color:#38bdf8;
+}
+
+.hero p{
+    margin-top:20px;
+    color:#94a3b8;
+    line-height:1.8;
+}
+
+.buttons{
+    margin-top:30px;
+}
+
+.btn{
+    padding:14px 28px;
+    border-radius:40px;
+    text-decoration:none;
+    display:inline-block;
+    margin-right:15px;
+}
+
+.primary{
+    background:#38bdf8;
+    color:white;
+}
+
+.secondary{
+    border:2px solid #38bdf8;
+    color:white;
+}
+
+.hero-image img{
+    width:350px;
+    border-radius:50%;
+    border:5px solid #38bdf8;
+    box-shadow:0 0 50px rgba(56,189,248,.5);
+}
+
+/* SECTIONS */
+
+section{
+    padding:100px 10%;
+}
+
+.title{
+    text-align:center;
+    font-size:2.5rem;
+    margin-bottom:50px;
+    color:#38bdf8;
+}
+
+/* ABOUT */
+
+.about-box{
+    background:#1e293b;
+    padding:30px;
+    border-radius:20px;
+}
+
+/* SKILLS */
+
+.skills{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.skill-card{
+    background:#1e293b;
+    padding:25px;
+    border-radius:15px;
+    transition:.4s;
+}
+
+.skill-card:hover{
+    transform:translateY(-10px);
+}
+
+/* PROJECTS */
+
+.projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.project-card{
+    background:#1e293b;
+    padding:30px;
+    border-radius:20px;
+    transition:.4s;
+}
+
+.project-card:hover{
+    transform:translateY(-10px);
+}
+
+.project-card h3{
+    color:#38bdf8;
+}
+
+/* TIMELINE */
+
+.timeline{
+    border-left:3px solid #38bdf8;
+    padding-left:30px;
+}
+
+.timeline-item{
+    margin-bottom:40px;
+}
+
+/* CONTACT */
+
+.contact{
+    text-align:center;
+}
+
+.contact p{
+    margin:10px;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    background:#020617;
+}
+
+@media(max-width:900px){
+
+.hero{
+    flex-direction:column;
+    text-align:center;
+    padding-top:120px;
+}
+
+.hero-image img{
+    width:250px;
+    margin-top:40px;
+}
+
+.hero h1{
+    font-size:2.5rem;
+}
+
+nav ul{
+    display:none;
+}
+}
+
+</style>
 </head>
+
 <body>
-  <a href="#main" class="skip-link">Skip to content</a>
 
-  <header class="header" id="header">
-    <div class="container nav">
-      <a href="#home" class="brand" aria-label="Mohammad Danish home">
-        <span class="brand-mark">MD</span>
-        <span>Mohammad Danish</span>
-      </a>
+<nav>
+    <div class="logo">DANISH</div>
 
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
-        <button class="theme-toggle" data-theme-toggle aria-label="Switch theme">
-          <span id="theme-icon">☾</span>
-        </button>
-      </nav>
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="tag">
+            AVAILABLE FOR INTERNSHIPS
+        </span>
+
+        <h1>
+            Hi, I'm
+            <span class="highlight">
+                Mohammad Danish
+            </span>
+        </h1>
+
+        <h2 id="typing"></h2>
+
+        <p>
+            Information Science Engineering student passionate
+            about Software Development, Data Analysis,
+            AI Solutions and Full Stack Development.
+        </p>
+
+        <div class="buttons">
+            <a href="#" class="btn primary">
+                View Projects
+            </a>
+
+            <a href="#" class="btn secondary">
+                Download Resume
+            </a>
+        </div>
+
     </div>
-  </header>
 
-  <main id="main">
-    <section class="hero" id="home">
-      <div class="container hero-grid">
-        <div class="fade-in">
-          <p class="eyebrow">Information Science Student · Portfolio</p>
-          <h1>Mohammad Danish</h1>
-          <p class="hero-subtitle">
-            Aspiring software engineer with hands-on exposure to LTE RAN systems,
-            web technologies, and data-focused academic projects.
-          </p>
-          <p class="hero-summary">
-            I am currently pursuing B.Tech in Information Science and Engineering at
-            Nitte and building my foundation through practical projects, continuous
-            learning, and internship experience at Sasken Technologies Ltd.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#projects">View Projects</a>
-            <a class="btn btn-secondary" href="#contact">Contact Me</a>
-          </div>
+    <div class="hero-image">
+        <img src="DANISH pic.jpg" alt="">
+    </div>
+
+</section>
+
+<section id="about">
+
+    <h2 class="title">About Me</h2>
+
+    <div class="about-box">
+
+        <p>
+            To obtain an entry-level position where I can apply
+            my technical knowledge and problem-solving abilities
+            while continuously learning and adapting to new
+            technologies.
+        </p>
+
+    </div>
+
+</section>
+
+<section id="skills">
+
+    <h2 class="title">Technical Skills</h2>
+
+    <div class="skills">
+
+        <div class="skill-card">
+            <h3>Programming</h3>
+            <p>Python, Java, C</p>
         </div>
 
-        <aside class="hero-panel fade-in">
-          <h2>Focused on practical engineering growth.</h2>
-          <p>
-            I aim to contribute to software and digital transformation work with
-            strong learning ability, analytical thinking, and reliable execution.
-          </p>
-
-          <div class="hero-points">
-            <div>
-              <span>Current Education</span>
-              <strong>B.Tech in Information Science and Engineering</strong>
-            </div>
-            <div>
-              <span>Industry Exposure</span>
-              <strong>LTE RAN Internship at Sasken Technologies Ltd</strong>
-            </div>
-            <div>
-              <span>Location</span>
-              <strong>Udupi, Karnataka, India</strong>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section" id="projects">
-      <div class="container">
-        <div class="section-head fade-in">
-          <p class="eyebrow">Projects</p>
-          <h2>Selected academic and technical work.</h2>
-          <p>
-            A small set of projects that reflect my interest in data analysis,
-            system thinking, and problem-oriented development.
-          </p>
+        <div class="skill-card">
+            <h3>Database</h3>
+            <p>SQL, MySQL, PostgreSQL</p>
         </div>
 
-        <div class="projects">
-          <article class="card clickable fade-in">
-            <span class="tag">Healthcare</span>
+        <div class="skill-card">
+            <h3>Web Development</h3>
+            <p>HTML, CSS, JavaScript</p>
+        </div>
+
+        <div class="skill-card">
+            <h3>Soft Skills</h3>
+            <p>Problem Solving, Teamwork</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="projects">
+
+    <h2 class="title">Projects</h2>
+
+    <div class="projects">
+
+        <div class="project-card">
             <h3>Hospital Management System</h3>
             <p>
-              A project focused on applying data analysis techniques to improve
-              management workflows and support organized decision-making.
+                Database-driven healthcare management system
+                using SQL and backend integration.
             </p>
-          </article>
+        </div>
 
-          <article class="card clickable fade-in">
-            <span class="tag">Analytics</span>
-            <h3>Price Prediction Using Data Analysis Techniques</h3>
+        <div class="project-card">
+            <h3>Udemy Price Prediction</h3>
             <p>
-              A predictive analysis project exploring how structured data can be
-              used to estimate price outcomes and identify useful trends.
+                Machine learning model using data analysis
+                techniques.
             </p>
-          </article>
+        </div>
 
-          <article class="card clickable fade-in">
-            <span class="tag">Concept Project</span>
-            <h3>AHEAD: Autonomous Human Early-failure Anticipation &amp; Direction</h3>
+        <div class="project-card">
+            <h3>AHEAD</h3>
             <p>
-              A concept-driven project aimed at anticipating failure-related
-              situations early and guiding response through intelligent direction.
+                Autonomous Human Early-failure
+                Anticipation & Direction.
             </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="experience">
-      <div class="container">
-        <div class="section-head fade-in">
-          <p class="eyebrow">Experience</p>
-          <h2>Industry exposure in wireless communication systems.</h2>
         </div>
 
-        <div class="experience-grid">
-          <article class="experience-box fade-in">
-            <p class="meta-label">Internship</p>
-            <h3>Sasken Technologies Ltd · LTE RAN Intern</h3>
-            <p>
-              Worked on 4G/LTE Radio Access Network features with focus on
-              performance analysis, protocol validation, debugging, and optimization support.
-            </p>
-            <ul>
-              <li>Assisted in development and testing of LTE RAN features.</li>
-              <li>Supported performance checks and protocol validation tasks.</li>
-              <li>Analyzed logs and contributed to debugging efforts.</li>
-              <li>Collaborated with engineering teams on wireless communication modules.</li>
-            </ul>
-          </article>
-
-          <aside class="side-note fade-in">
-            <p class="meta-label">Professional strengths</p>
-            <p>
-              This experience strengthened my analytical thinking, collaboration,
-              and ability to work methodically in a technical engineering environment.
-            </p>
-            <strong>Validation · Debugging · Teamwork</strong>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="education">
-      <div class="container two-col">
-        <div class="section-head fade-in">
-          <p class="eyebrow">Education</p>
-          <h2>Academic background.</h2>
-          <p>
-            My educational path has steadily built the foundation for software,
-            systems, and engineering problem solving.
-          </p>
-        </div>
-
-        <div class="timeline">
-          <article class="timeline-item fade-in">
-            <h3>Nitte Mahalinga Adyantaya Memorial Institute of Technology, Nitte</h3>
-            <p class="timeline-meta">B.Tech in Information Science and Engineering · 2023 – Present</p>
-            <p>Currently pursuing engineering studies with focus on computing and technical problem solving.</p>
-          </article>
-
-          <article class="timeline-item fade-in">
-            <h3>Vidyodaya Pre-University College, Udupi</h3>
-            <p class="timeline-meta">Pre-University · 2021 – 2023</p>
-            <p>Completed pre-university education as the academic base for engineering studies.</p>
-          </article>
-
-          <article class="timeline-item fade-in">
-            <h3>GM Vidyanikethan Public School, Brahmavara</h3>
-            <p class="timeline-meta">Schooling · 2009 – 2021</p>
-            <p>Built the academic foundation that shaped my interest in learning and logic.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="skills">
-      <div class="container">
-        <div class="section-head fade-in">
-          <p class="eyebrow">Skills</p>
-          <h2>Technical and professional strengths.</h2>
-        </div>
-
-        <div class="list-grid">
-          <article class="list-card fade-in">
-            <h3>Technical skills</h3>
-            <ul>
-              <li>Programming: C, Java, Python</li>
-              <li>Database concepts: SQL, MySQL, PostgreSQL</li>
-              <li>Web: HTML, CSS, JavaScript</li>
-              <li>Basic front-end and back-end fundamentals</li>
-            </ul>
-          </article>
-
-          <article class="list-card fade-in">
-            <h3>Professional skills</h3>
-            <ul>
-              <li>Analytical thinking and problem solving</li>
-              <li>Quick learner and adaptable</li>
-              <li>Teamwork and collaboration</li>
-              <li>Attention to detail and logical thinking</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="certifications">
-      <div class="container">
-        <div class="section-head fade-in">
-          <p class="eyebrow">Certifications</p>
-          <h2>Continuous learning.</h2>
-        </div>
-
-        <div class="list-grid">
-          <article class="list-card fade-in">
-            <h3>Courses completed</h3>
-            <ul>
-              <li>TypeScript Programming for Web Development — Infosys Springboard</li>
-              <li>Software Engineering Fundamentals — Infosys Springboard</li>
-              <li>Java Programming for Complete Beginners — Udemy</li>
-            </ul>
-          </article>
-
-          <article class="list-card fade-in">
-            <h3>Focus areas</h3>
-            <ul>
-              <li>Programming fundamentals</li>
-              <li>Software engineering basics</li>
-              <li>Web development learning</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="section-head fade-in">
-          <p class="eyebrow">Contact</p>
-          <h2>Get in touch.</h2>
-          <p>
-            I am open to internships, entry-level software roles, and opportunities
-            to grow through meaningful technical work.
-          </p>
-        </div>
-
-        <div class="contact-grid">
-          <article class="contact-item fade-in">
-            <h3>Phone</h3>
-            <a href="tel:+919008937245">9008937245</a>
-          </article>
-          <article class="contact-item fade-in">
-            <h3>Email</h3>
-            <a href="mailto:danishudupi2021@gmail.com">danishudupi2021@gmail.com</a>
-          </article>
-          <article class="contact-item fade-in">
-            <h3>LinkedIn</h3>
-            <a href="https://www.linkedin.com/in/mohammad-danish-2a2b08247" target="_blank" rel="noopener noreferrer">
-              linkedin.com/in/mohammad-danish-2a2b08247
-            </a>
-          </article>
-          <article class="contact-item fade-in">
-            <h3>Location</h3>
-            <p>Santhekatte, Udupi, Karnataka, India</p>
-          </article>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container">
-      <p>© 2026 Mohammad Danish</p>
     </div>
-  </footer>
 
-  <script>
-    (function () {
-      const root = document.documentElement;
-      const toggle = document.querySelector("[data-theme-toggle]");
-      const icon = document.getElementById("theme-icon");
-      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-      let theme = prefersDark ? "dark" : "light";
+</section>
 
-      function setTheme(next) {
-        root.setAttribute("data-theme", next);
-        theme = next;
-        icon.textContent = next === "dark" ? "☀" : "☾";
-        toggle.setAttribute("aria-label", next === "dark" ? "Switch to light mode" : "Switch to dark mode");
-      }
+<section id="experience">
 
-      setTheme(theme);
-      toggle.addEventListener("click", () => setTheme(theme === "dark" ? "light" : "dark"));
-    })();
+    <h2 class="title">Experience</h2>
 
-    (function () {
-      const header = document.getElementById("header");
-      const items = document.querySelectorAll(".fade-in");
+    <div class="timeline">
 
-      function onScroll() {
-        if (window.scrollY > 10) header.classList.add("scrolled");
-        else header.classList.remove("scrolled");
-      }
+        <div class="timeline-item">
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.15 });
+            <h3>
+                Sasken Technologies Ltd
+            </h3>
 
-      items.forEach((item) => observer.observe(item));
-      window.addEventListener("scroll", onScroll, { passive: true });
-      onScroll();
-    })();
-  </script>
+            <h4>
+                LTE RAN Intern
+            </h4>
+
+            <p>
+                Worked on LTE Radio Access Network
+                development, protocol validation,
+                performance optimization and debugging.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="contact" class="contact">
+
+    <h2 class="title">Contact Me</h2>
+
+    <p>📞 9008937245</p>
+    <p>📧 danishudupi2021@gmail.com</p>
+    <p>📍 Udupi, Karnataka</p>
+
+</section>
+
+<footer>
+    © 2026 Mohammad Danish
+</footer>
+
+<script>
+
+const text = [
+"Software Developer",
+"Data Analyst",
+"AI Enthusiast",
+"Full Stack Developer"
+];
+
+let i = 0;
+
+setInterval(()=>{
+document.getElementById("typing").innerHTML=text[i];
+i=(i+1)%text.length;
+},2000);
+
+</script>
+
 </body>
 </html>
