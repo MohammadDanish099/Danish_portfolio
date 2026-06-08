@@ -1,342 +1,1232 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mohammad Danish | Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mohammad-danish-portfolio</title>
+  <meta
+    name="description"
+    content="Creative portfolio of Mohammad Danish — Information Science student, LTE RAN intern, and aspiring software engineer."
+  />
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
+  <style>
+    :root,
+    [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --text-3xl: clamp(2.5rem, 1rem + 4vw, 5rem);
 
-body{
-    background:#0f172a;
-    color:white;
-    overflow-x:hidden;
-}
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+      --space-24: 6rem;
 
-header{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    background:linear-gradient(135deg,#0f172a,#1e293b);
-}
+      --color-bg: #f6f3ee;
+      --color-surface: #fbf9f6;
+      --color-surface-2: #f0ece6;
+      --color-border: #d8d1c7;
+      --color-divider: #dfd8cf;
 
-.hero{
-    animation:fadeIn 2s ease;
-}
+      --color-text: #1f1d1a;
+      --color-text-muted: #66625b;
+      --color-text-faint: #979188;
+      --color-text-inverse: #f8f6f2;
 
-.hero h1{
-    font-size:4rem;
-    color:#38bdf8;
-}
+      --color-primary: #0e6b68;
+      --color-primary-hover: #0a5553;
+      --color-primary-highlight: #d7e7e5;
 
-.hero h2{
-    margin-top:10px;
-    font-size:1.5rem;
-    color:#cbd5e1;
-}
+      --radius-sm: 0.375rem;
+      --radius-md: 0.75rem;
+      --radius-lg: 1rem;
+      --radius-xl: 1.5rem;
+      --radius-full: 9999px;
 
-.hero p{
-    margin-top:20px;
-    max-width:700px;
-    color:#94a3b8;
-}
+      --shadow-sm: 0 1px 2px rgba(20, 18, 14, 0.06);
+      --shadow-md: 0 8px 24px rgba(20, 18, 14, 0.09);
+      --shadow-lg: 0 18px 48px rgba(20, 18, 14, 0.12);
 
-.btn{
-    display:inline-block;
-    margin-top:25px;
-    padding:12px 25px;
-    background:#38bdf8;
-    color:white;
-    text-decoration:none;
-    border-radius:30px;
-    transition:.4s;
-}
+      --font-display: "Playfair Display", Georgia, serif;
+      --font-body: "Inter", Arial, sans-serif;
 
-.btn:hover{
-    transform:translateY(-5px);
-    background:#0284c7;
-}
-
-section{
-    padding:80px 10%;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:50px;
-    color:#38bdf8;
-    font-size:2.5rem;
-}
-
-.about{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:50px;
-}
-
-.card{
-    background:#1e293b;
-    padding:25px;
-    border-radius:15px;
-    transition:.4s;
-}
-
-.card:hover{
-    transform:translateY(-10px);
-}
-
-.skills-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-}
-
-.skill{
-    background:#1e293b;
-    padding:20px;
-    border-radius:10px;
-}
-
-.progress{
-    background:#334155;
-    height:10px;
-    border-radius:20px;
-    overflow:hidden;
-    margin-top:10px;
-}
-
-.progress-bar{
-    height:100%;
-    background:#38bdf8;
-}
-
-.projects{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:25px;
-}
-
-.project-card{
-    background:#1e293b;
-    padding:25px;
-    border-radius:15px;
-    transition:.4s;
-}
-
-.project-card:hover{
-    transform:scale(1.05);
-}
-
-.timeline{
-    border-left:3px solid #38bdf8;
-    padding-left:20px;
-}
-
-.timeline-item{
-    margin-bottom:30px;
-}
-
-.contact{
-    text-align:center;
-}
-
-footer{
-    text-align:center;
-    padding:20px;
-    background:#020617;
-}
-
-@keyframes fadeIn{
-    from{
-        opacity:0;
-        transform:translateY(50px);
+      --content-width: 1180px;
+      --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-smooth: 400ms cubic-bezier(0.16, 1, 0.3, 1);
     }
-    to{
-        opacity:1;
-        transform:translateY(0);
+
+    [data-theme="dark"] {
+      --color-bg: #171614;
+      --color-surface: #1e1c19;
+      --color-surface-2: #272420;
+      --color-border: #3d3933;
+      --color-divider: #302d29;
+
+      --color-text: #ebe6dd;
+      --color-text-muted: #b6aea4;
+      --color-text-faint: #8b847a;
+      --color-text-inverse: #171614;
+
+      --color-primary: #67b6b1;
+      --color-primary-hover: #88c8c4;
+      --color-primary-highlight: #213432;
+
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.25);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 18px 48px rgba(0, 0, 0, 0.38);
     }
-}
-</style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      scroll-padding-top: 5rem;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.65;
+      color: var(--color-text);
+      background:
+        radial-gradient(circle at top right, rgba(14, 107, 104, 0.08), transparent 25%),
+        var(--color-bg);
+    }
+
+    img,
+    svg {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition:
+        color var(--transition-interactive),
+        opacity var(--transition-interactive);
+    }
+
+    button {
+      font: inherit;
+      border: none;
+      background: none;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -3rem;
+      background: var(--color-primary);
+      color: #fff;
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-md);
+      z-index: 100;
+    }
+
+    .skip-link:focus {
+      top: 1rem;
+    }
+
+    .container {
+      width: min(100% - 2rem, var(--content-width));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: clamp(3.5rem, 8vw, 7rem) 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--text-xs);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-4);
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 2.5rem;
+      height: 1px;
+      background: var(--color-primary);
+      opacity: 0.6;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      line-height: 1.08;
+      margin-bottom: var(--space-4);
+    }
+
+    .section-intro {
+      max-width: 62ch;
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-8);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(246, 243, 238, 0.75);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid transparent;
+      transition:
+        transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+        background 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="dark"] .site-header {
+      background: rgba(23, 22, 20, 0.75);
+    }
+
+    .site-header.scrolled {
+      border-color: var(--color-divider);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 4.75rem;
+      gap: var(--space-4);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-mark {
+      width: 2.35rem;
+      height: 2.35rem;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--color-primary), color-mix(in srgb, var(--color-primary) 65%, white));
+      color: white;
+      box-shadow: var(--shadow-sm);
+      font-family: var(--font-display);
+      font-size: 1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      position: relative;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--color-text);
+    }
+
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: var(--radius-full);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      transition:
+        transform var(--transition-interactive),
+        background var(--transition-interactive),
+        border-color var(--transition-interactive);
+    }
+
+    .theme-toggle:hover {
+      transform: translateY(-1px);
+      border-color: var(--color-primary);
+    }
+
+    .hero {
+      padding: clamp(4rem, 10vw, 8rem) 0 clamp(3rem, 8vw, 6rem);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: clamp(2rem, 4vw, 4rem);
+      align-items: center;
+    }
+
+    .hero-copy h1 {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      max-width: 10ch;
+      margin-bottom: var(--space-5);
+    }
+
+    .hero-copy .subtitle {
+      font-size: var(--text-lg);
+      color: var(--color-text-muted);
+      max-width: 36ch;
+      margin-bottom: var(--space-6);
+    }
+
+    .hero-copy .summary {
+      color: var(--color-text-muted);
+      max-width: 58ch;
+      margin-bottom: var(--space-8);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      margin-bottom: var(--space-8);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 3rem;
+      padding: 0.9rem 1.25rem;
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      transition:
+        transform var(--transition-interactive),
+        background var(--transition-interactive),
+        color var(--transition-interactive),
+        border-color var(--transition-interactive),
+        box-shadow var(--transition-interactive);
+    }
+
+    .btn-primary {
+      background: var(--color-primary);
+      color: #fff;
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-1px);
+      border-color: var(--color-primary);
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-4);
+    }
+
+    .meta-card {
+      padding: var(--space-5);
+      border-radius: var(--radius-lg);
+      background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .meta-card span {
+      display: block;
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--color-text-faint);
+      margin-bottom: 0.35rem;
+    }
+
+    .meta-card strong {
+      font-size: var(--text-sm);
+      line-height: 1.5;
+    }
+
+    .hero-card {
+      position: relative;
+      padding: clamp(1.5rem, 3vw, 2rem);
+      border-radius: 2rem;
+      background: linear-gradient(180deg, var(--color-surface), var(--color-surface-2));
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -3rem -3rem auto;
+      width: 12rem;
+      height: 12rem;
+      border-radius: 50%;
+      background: color-mix(in srgb, var(--color-primary) 18%, transparent);
+      filter: blur(6px);
+    }
+
+    .portrait {
+      aspect-ratio: 4 / 5;
+      border-radius: 1.5rem;
+      background: linear-gradient(145deg, #2a2a2a, #454545);
+      overflow: hidden;
+      margin-bottom: var(--space-5);
+      position: relative;
+      isolation: isolate;
+    }
+
+    .portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .portrait-fallback {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 5rem);
+      color: rgba(255,255,255,0.92);
+      background:
+        linear-gradient(135deg, rgba(14,107,104,0.65), rgba(12,25,29,0.9));
+    }
+
+    .hero-note {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .hero-note-card {
+      padding: var(--space-5);
+      border-radius: var(--radius-lg);
+      background: rgba(255,255,255,0.35);
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    [data-theme="dark"] .hero-note-card {
+      background: rgba(255,255,255,0.03);
+      border-color: rgba(255,255,255,0.06);
+    }
+
+    .hero-note-card h2 {
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--color-text-faint);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-note-card p {
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+    }
+
+    .grid-two {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: clamp(2rem, 4vw, 4rem);
+      align-items: start;
+    }
+
+    .panel {
+      padding: clamp(1.5rem, 3vw, 2rem);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .about-copy p + p {
+      margin-top: 1rem;
+      color: var(--color-text-muted);
+    }
+
+    .timeline {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: var(--space-5) var(--space-5) var(--space-5) var(--space-6);
+      border-left: 1px solid var(--color-border);
+      background: var(--color-surface);
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -0.45rem;
+      top: 1.35rem;
+      width: 0.85rem;
+      height: 0.85rem;
+      border-radius: 50%;
+      background: var(--color-primary);
+      box-shadow: 0 0 0 4px var(--color-bg);
+    }
+
+    .timeline-item h3 {
+      font-size: var(--text-lg);
+      line-height: 1.2;
+      margin-bottom: 0.35rem;
+    }
+
+    .timeline-item .meta {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .timeline-item p,
+    .timeline-item li {
+      color: var(--color-text-muted);
+    }
+
+    .timeline-item ul {
+      padding-left: 1rem;
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-5);
+    }
+
+    .project-card,
+    .skill-card,
+    .cert-card,
+    .contact-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .project-card {
+      padding: var(--space-6);
+      transition:
+        transform var(--transition-interactive),
+        box-shadow var(--transition-interactive),
+        border-color var(--transition-interactive);
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: color-mix(in srgb, var(--color-primary) 35%, var(--color-border));
+    }
+
+    .project-tag {
+      display: inline-flex;
+      padding: 0.45rem 0.8rem;
+      border-radius: var(--radius-full);
+      background: var(--color-primary-highlight);
+      color: var(--color-primary);
+      font-size: var(--text-xs);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-4);
+    }
+
+    .project-card h3 {
+      font-size: var(--text-lg);
+      margin-bottom: 0.65rem;
+      line-height: 1.2;
+    }
+
+    .project-card p {
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+    }
+
+    .experience-highlight {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: var(--space-5);
+      align-items: stretch;
+    }
+
+    .experience-card {
+      padding: clamp(1.5rem, 3vw, 2rem);
+      background: linear-gradient(180deg, var(--color-surface), color-mix(in srgb, var(--color-surface-2) 80%, transparent));
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .experience-card .role {
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--color-text-faint);
+      margin-bottom: 0.6rem;
+    }
+
+    .experience-card h3 {
+      font-size: var(--text-xl);
+      line-height: 1.12;
+      margin-bottom: var(--space-3);
+    }
+
+    .experience-card p,
+    .experience-card li {
+      color: var(--color-text-muted);
+    }
+
+    .experience-card ul {
+      padding-left: 1rem;
+      display: grid;
+      gap: 0.7rem;
+      margin-top: var(--space-4);
+    }
+
+    .achievement-box {
+      padding: var(--space-6);
+      border-radius: var(--radius-xl);
+      background: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface));
+      border: 1px solid color-mix(in srgb, var(--color-primary) 20%, var(--color-border));
+    }
+
+    .achievement-box h3 {
+      font-size: var(--text-sm);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-text-faint);
+      margin-bottom: 0.65rem;
+    }
+
+    .achievement-box p {
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-4);
+    }
+
+    .achievement-box strong {
+      font-size: var(--text-xl);
+      font-family: var(--font-display);
+      color: var(--color-text);
+    }
+
+    .skill-grid,
+    .cert-grid,
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-5);
+    }
+
+    .skill-card,
+    .cert-card,
+    .contact-card {
+      padding: var(--space-6);
+    }
+
+    .skill-card h3,
+    .cert-card h3,
+    .contact-card h3 {
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--color-text-faint);
+      margin-bottom: 0.9rem;
+    }
+
+    .skill-list,
+    .cert-list {
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .skill-list li,
+    .cert-list li {
+      list-style: none;
+      color: var(--color-text-muted);
+      position: relative;
+      padding-left: 1rem;
+    }
+
+    .skill-list li::before,
+    .cert-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.72em;
+      width: 0.38rem;
+      height: 0.38rem;
+      border-radius: 50%;
+      background: var(--color-primary);
+    }
+
+    .contact-card a {
+      color: var(--color-text-muted);
+      word-break: break-word;
+    }
+
+    .contact-card a:hover {
+      color: var(--color-primary);
+    }
+
+    .footer {
+      padding: 2rem 0 3rem;
+      border-top: 1px solid var(--color-divider);
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition:
+        opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-animate {
+      opacity: 0;
+      animation: heroFade 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .hero-animate.delay-1 { animation-delay: 0.12s; }
+    .hero-animate.delay-2 { animation-delay: 0.24s; }
+    .hero-animate.delay-3 { animation-delay: 0.36s; }
+
+    @keyframes heroFade {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 1040px) {
+      .hero-grid,
+      .grid-two,
+      .experience-highlight,
+      .cards,
+      .skill-grid,
+      .cert-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy h1 {
+        max-width: 12ch;
+      }
+
+      .hero-meta {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 1rem 0;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: space-between;
+        gap: 0.75rem;
+      }
+
+      .hero {
+        padding-top: 2.5rem;
+      }
+
+      .hero-copy h1 {
+        max-width: none;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .footer-row {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+
+      .reveal,
+      .hero-animate {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+      }
+    }
+  </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<header>
-<div class="hero">
-    <h1>Mohammad Danish</h1>
-    <h2>Software Developer | Data Analyst | AI Enthusiast</h2>
+  <header class="site-header" id="header">
+    <div class="container nav">
+      <a href="#home" class="brand" aria-label="Mohammad Danish home">
+        <span class="brand-mark">MD</span>
+        <span>Mohammad Danish</span>
+      </a>
 
-    <p>
-        Passionate Information Science student focused on software
-        development, data analysis, and innovative technology solutions.
-    </p>
-
-    <a href="#" class="btn">Download Resume</a>
-</div>
-</header>
-
-<section>
-    <h2 class="section-title">About Me</h2>
-
-    <div class="about">
-        <div class="card">
-            <h3>Career Objective</h3>
-            <p>
-                To obtain an entry-level position where I can apply my
-                technical knowledge and problem-solving abilities while
-                continuously learning and adapting to new technologies.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Professional Strengths</h3>
-            <ul>
-                <li>Analytical Thinking</li>
-                <li>Problem Solving</li>
-                <li>Quick Learner</li>
-                <li>Team Collaboration</li>
-                <li>Attention to Detail</li>
-            </ul>
-        </div>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+        <button class="theme-toggle" data-theme-toggle aria-label="Switch theme">
+          <span id="theme-icon">☾</span>
+        </button>
+      </nav>
     </div>
-</section>
+  </header>
 
-<section>
-    <h2 class="section-title">Technical Skills</h2>
+  <main id="main">
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow hero-animate">Portfolio · Information Science</p>
+          <h1 class="hero-animate delay-1">Mohammad Danish</h1>
+          <p class="subtitle hero-animate delay-2">
+            Aspiring software engineer with a growing foundation in web development,
+            data-driven projects, and wireless network engineering.
+          </p>
+          <p class="summary hero-animate delay-3">
+            I’m a B.Tech student in Information Science and Engineering at Nitte,
+            building my career through practical projects, continuous learning, and
+            hands-on experience with LTE RAN testing and performance validation at
+            Sasken Technologies.
+          </p>
 
-    <div class="skills-grid">
+          <div class="hero-actions hero-animate delay-3">
+            <a class="btn btn-primary" href="#projects">View projects</a>
+            <a class="btn btn-secondary" href="#contact">Get in touch</a>
+          </div>
 
-        <div class="skill">
-            <h3>Python</h3>
-            <div class="progress">
-                <div class="progress-bar" style="width:85%"></div>
-            </div>
+          <div class="hero-meta hero-animate delay-3">
+            <article class="meta-card">
+              <span>Current focus</span>
+              <strong>Software engineering, web development, and practical problem solving</strong>
+            </article>
+            <article class="meta-card">
+              <span>Experience</span>
+              <strong>LTE Radio Access Network internship at Sasken Technologies Ltd</strong>
+            </article>
+            <article class="meta-card">
+              <span>Location</span>
+              <strong>Udupi, Karnataka, India</strong>
+            </article>
+          </div>
         </div>
 
-        <div class="skill">
-            <h3>Java</h3>
-            <div class="progress">
-                <div class="progress-bar" style="width:80%"></div>
+        <aside class="hero-card hero-animate delay-2" aria-label="Profile summary card">
+          <div class="portrait">
+            <!-- Replace image path below with your real photo if available -->
+            <!-- <img src="./assets/danish-photo.jpg" alt="Portrait of Mohammad Danish" width="800" height="1000" loading="eager" /> -->
+            <div class="portrait-fallback" aria-hidden="true">MD</div>
+          </div>
+
+          <div class="hero-note">
+            <div class="hero-note-card">
+              <h2>About</h2>
+              <p>
+                Entry-level engineering student focused on applying technical knowledge,
+                improving continuously, and contributing to reliable digital solutions.
+              </p>
             </div>
+            <div class="hero-note-card">
+              <h2>Strengths</h2>
+              <p>
+                Analytical thinking, adaptability, teamwork, attention to detail,
+                and a strong willingness to learn new technologies quickly.
+              </p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container grid-two">
+        <div class="reveal">
+          <p class="eyebrow">About</p>
+          <h2 class="section-title">Building skills with curiosity, structure, and consistency.</h2>
         </div>
 
-        <div class="skill">
-            <h3>SQL</h3>
-            <div class="progress">
-                <div class="progress-bar" style="width:85%"></div>
-            </div>
+        <div class="panel about-copy reveal">
+          <p>
+            My goal is to start my career in a role where I can apply technical knowledge,
+            solve real problems, and keep learning as technologies evolve. I’m especially
+            interested in software systems that are reliable, efficient, and useful in the real world.
+          </p>
+          <p>
+            I value teamwork, logical thinking, and adaptability. Whether I’m working on
+            data-based academic projects or contributing to wireless engineering tasks,
+            I aim to learn fast, collaborate well, and deliver meaningful results.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="reveal">
+          <p class="eyebrow">Projects</p>
+          <h2 class="section-title">Selected work that reflects my technical interests.</h2>
+          <p class="section-intro">
+            These projects show my interest in practical systems, applied data analysis,
+            and solution-focused problem solving across healthcare, prediction models,
+            and intelligent assistance concepts.
+          </p>
         </div>
 
-        <div class="skill">
-            <h3>HTML/CSS/JavaScript</h3>
-            <div class="progress">
-                <div class="progress-bar" style="width:75%"></div>
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<section>
-    <h2 class="section-title">Projects</h2>
-
-    <div class="projects">
-
-        <div class="project-card">
+        <div class="cards">
+          <article class="project-card reveal">
+            <span class="project-tag">Data systems</span>
             <h3>Hospital Management System</h3>
             <p>
-                Database-driven healthcare management system using SQL,
-                backend integration, and analytics.
+              A project centered on using data analysis techniques to support hospital-related
+              management workflows, with a focus on organized information handling and more informed decisions.
             </p>
-        </div>
+          </article>
 
-        <div class="project-card">
-            <h3>Udemy Price Prediction</h3>
+          <article class="project-card reveal">
+            <span class="project-tag">Prediction</span>
+            <h3>Price Prediction Using Data Analysis Techniques</h3>
             <p>
-                Machine learning project for predicting course prices
-                using data analysis techniques.
+              A predictive analysis project built to explore how structured data can be used
+              to estimate price outcomes and uncover useful patterns for decision-making.
             </p>
-        </div>
+          </article>
 
-        <div class="project-card">
-            <h3>AHEAD</h3>
+          <article class="project-card reveal">
+            <span class="project-tag">Innovation</span>
+            <h3>AHEAD: Autonomous Human Early-failure Anticipation &amp; Direction</h3>
             <p>
-                Autonomous Human Early-Failure Anticipation &
-                Direction system based on AI concepts.
+              A concept-driven project aimed at anticipating failure-related scenarios early
+              and guiding action through an intelligent, proactive approach.
             </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="reveal">
+          <p class="eyebrow">Experience</p>
+          <h2 class="section-title">Hands-on industry exposure in wireless communication systems.</h2>
         </div>
 
+        <div class="experience-highlight">
+          <article class="experience-card reveal">
+            <div class="role">Internship</div>
+            <h3>Sasken Technologies Ltd · LTE RAN Intern</h3>
+            <p>
+              Worked on 4G/LTE Radio Access Network features with attention to performance,
+              protocol validation, network optimization, and issue analysis.
+            </p>
+            <ul>
+              <li>Assisted in development and testing of LTE RAN features.</li>
+              <li>Focused on performance checks, protocol validation, and optimization support.</li>
+              <li>Analyzed logs and helped debug issues with cross-functional engineering teams.</li>
+              <li>Contributed to improving 4G/LTE wireless communication modules.</li>
+            </ul>
+          </article>
+
+          <aside class="achievement-box reveal">
+            <h3>What this experience built</h3>
+            <p>
+              This internship strengthened my ability to work in technical teams,
+              approach debugging methodically, and understand communication systems
+              in a practical engineering setting.
+            </p>
+            <strong>Performance · Validation · Collaboration</strong>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="education">
+      <div class="container grid-two">
+        <div class="reveal">
+          <p class="eyebrow">Education</p>
+          <h2 class="section-title">Academic journey in technology and engineering.</h2>
+          <p class="section-intro">
+            My education reflects a steady path toward software and systems thinking,
+            from school through pre-university and into engineering specialization.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <h3>Nitte Mahalinga Adyantaya Memorial Institute of Technology, Nitte</h3>
+            <div class="meta">B.Tech in Information Science and Engineering · 2023 – Present</div>
+            <p>
+              Currently pursuing engineering studies with a focus on computing, systems,
+              and technical problem solving.
+            </p>
+          </article>
+
+          <article class="timeline-item reveal">
+            <h3>Vidyodaya Pre-University College, Udupi</h3>
+            <div class="meta">Pre-University · 2021 – 2023</div>
+            <p>Completed pre-university education as the academic foundation for engineering studies.</p>
+          </article>
+
+          <article class="timeline-item reveal">
+            <h3>GM Vidyanikethan Public School, Brahmavara</h3>
+            <div class="meta">Schooling · 2009 – 2021</div>
+            <p>Built the early academic base that shaped my interest in learning and analytical thinking.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="reveal">
+          <p class="eyebrow">Skills</p>
+          <h2 class="section-title">Technical capabilities and professional strengths.</h2>
+        </div>
+
+        <div class="skill-grid">
+          <article class="skill-card reveal">
+            <h3>Technical skills</h3>
+            <ul class="skill-list">
+              <li>Programming: C, Java, Python</li>
+              <li>Database management: SQL, MySQL, PostgreSQL concepts</li>
+              <li>Web fundamentals: HTML, CSS, JavaScript</li>
+              <li>Basic front-end and back-end understanding</li>
+            </ul>
+          </article>
+
+          <article class="skill-card reveal">
+            <h3>Professional skills</h3>
+            <ul class="skill-list">
+              <li>Analytical thinking and problem solving</li>
+              <li>Quick learning and adaptability</li>
+              <li>Teamwork and collaboration</li>
+              <li>Attention to detail and logical thinking</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="certifications">
+      <div class="container">
+        <div class="reveal">
+          <p class="eyebrow">Certifications</p>
+          <h2 class="section-title">Coursework that supports my technical growth.</h2>
+        </div>
+
+        <div class="cert-grid">
+          <article class="cert-card reveal">
+            <h3>Completed learning</h3>
+            <ul class="cert-list">
+              <li>TypeScript Programming for Web Development — Infosys Springboard</li>
+              <li>Software Engineering Fundamentals — Software Development and Testing — Infosys Springboard</li>
+              <li>Java Programming for Complete Beginners — Udemy</li>
+            </ul>
+          </article>
+
+          <article class="cert-card reveal">
+            <h3>Learning direction</h3>
+            <ul class="cert-list">
+              <li>Strengthening web development fundamentals</li>
+              <li>Building programming confidence across languages</li>
+              <li>Expanding practical understanding of software engineering workflows</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="reveal">
+          <p class="eyebrow">Contact</p>
+          <h2 class="section-title">Let’s connect.</h2>
+          <p class="section-intro">
+            I’m building toward entry-level software opportunities and always open to
+            conversations around internships, projects, and career growth.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <article class="contact-card reveal">
+            <h3>Phone</h3>
+            <a href="tel:+919008937245">9008937245</a>
+          </article>
+
+          <article class="contact-card reveal">
+            <h3>Email</h3>
+            <a href="mailto:danishudupi2021@gmail.com">danishudupi2021@gmail.com</a>
+          </article>
+
+          <article class="contact-card reveal">
+            <h3>LinkedIn</h3>
+            <a href="https://www.linkedin.com/in/mohammad-danish-2a2b08247" target="_blank" rel="noopener noreferrer">
+              linkedin.com/in/mohammad-danish-2a2b08247
+            </a>
+          </article>
+
+          <article class="contact-card reveal">
+            <h3>Location</h3>
+            <p>Santhekatte, Udupi, Karnataka, India</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-row">
+      <p>© 2026 Mohammad Danish</p>
+      <p>Designed as a clean, creative portfolio with subtle motion.</p>
     </div>
-</section>
+  </footer>
 
-<section>
-    <h2 class="section-title">Education</h2>
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const toggle = document.querySelector("[data-theme-toggle]");
+      const themeIcon = document.getElementById("theme-icon");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      let currentTheme = prefersDark ? "dark" : "light";
 
-    <div class="timeline">
+      function setTheme(theme) {
+        root.setAttribute("data-theme", theme);
+        currentTheme = theme;
+        themeIcon.textContent = theme === "dark" ? "☀" : "☾";
+        toggle.setAttribute(
+          "aria-label",
+          theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+        );
+      }
 
-        <div class="timeline-item">
-            <h3>B.Tech Information Science & Engineering</h3>
-            <p>Nitte Mahalinga Adyantaya Memorial Institute of Technology</p>
-            <p>2023 - Present</p>
-        </div>
+      setTheme(currentTheme);
 
-        <div class="timeline-item">
-            <h3>Pre-University</h3>
-            <p>Vidyodaya Pre-University College, Udupi</p>
-            <p>2021 - 2023</p>
-        </div>
+      toggle.addEventListener("click", function () {
+        setTheme(currentTheme === "dark" ? "light" : "dark");
+      });
+    })();
 
-        <div class="timeline-item">
-            <h3>School Education</h3>
-            <p>GM Vidyanikethan Public School</p>
-            <p>2009 - 2021</p>
-        </div>
+    (function () {
+      const header = document.getElementById("header");
+      const reveals = document.querySelectorAll(".reveal");
 
-    </div>
-</section>
+      function updateHeader() {
+        if (window.scrollY > 12) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      }
 
-<section>
-    <h2 class="section-title">Experience</h2>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.18,
+        }
+      );
 
-    <div class="card">
-        <h3>Sasken Technologies Ltd</h3>
-        <h4>LTE RAN Intern</h4>
-        <br>
-        <ul>
-            <li>Worked on LTE Radio Access Network features.</li>
-            <li>Protocol validation and performance optimization.</li>
-            <li>Analyzed logs and debugged wireless communication issues.</li>
-            <li>Collaborated with cross-functional engineering teams.</li>
-        </ul>
-    </div>
-</section>
-
-<section class="contact">
-    <h2 class="section-title">Contact</h2>
-
-    <p>📞 9008937245</p>
-    <p>📧 danishudupi2021@gmail.com</p>
-    <p>📍 Santhekatte, Udupi</p>
-
-    <br>
-
-    <a href="https://linkedin.com" class="btn">
-        LinkedIn Profile
-    </a>
-</section>
-
-<footer>
-    <p>© 2026 Mohammad Danish | Portfolio</p>
-</footer>
-
+      reveals.forEach((el) => observer.observe(el));
+      window.addEventListener("scroll", updateHeader, { passive: true });
+      updateHeader();
+    })();
+  </script>
 </body>
 </html>
